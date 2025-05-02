@@ -6,9 +6,6 @@ from components.formulario import formulario
 st.set_page_config(layout="wide")
 st.header("Know Your Fan")
 
-# Estilo personalizado
-st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
-
 # Barra lateral com navegação
 with st.sidebar:
    tabs = on_hover_tabs(

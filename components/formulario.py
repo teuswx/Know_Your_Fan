@@ -84,23 +84,50 @@ def formulario():
         texto = extrairTexto(arquivo)  
         validacao_do_documento = validarDocumento(texto, nome, cpf)
 
-        teste = verifica_interacao(x,twitch)
-        print(teste)
-        if validacao_do_documento['valido']:
+        interecao_web = verifica_interacao(x,twitch)
 
+        if validacao_do_documento['valido']:
             st.success("Dados validados com sucesso!")
-            st.write("🔎 Resumo dos dados coletados:")
-            st.write(f"**Nome:** {nome}")
+            st.write("🔎 **Resumo dos dados coletados:**")
+
+            # Nome e CPF
+            st.write(f"**Nome Completo:** {nome}")
             st.write(f"**CPF:** {cpf}")
-            st.write(f"**Endereço:** {endereco}")
-            st.write(f"**Interesses:** {', '.join(interesses)}")
-            st.write(f"**Eventos:** {eventos}")
-            st.write(f"**Atividades:** {atividades}")
-            st.write(f"**Compras:** {compras}")
-            st.write(f"**Data do envio:** {date.today()}")
-            st.write(f"Você carregou: {arquivo.name}")
+
+            # Endereço
+            st.write(f"**Endereço Completo:** {endereco}")
+
+            # Interesses em e-sports
+            st.write(f"**Interesses em e-sports:**")
+            for interesse in interesses:
+                st.write(f" - {interesse}")
+
+            # Eventos de e-sports
+            st.write(f"**Eventos de e-sports que você participou no último ano:**")
+            st.write(eventos)
+
+            # Atividades realizadas como fã
+            st.write(f"**Atividades realizadas como fã (ex: streaming, cosplay, produção de conteúdo, etc.):**")
+            st.write(atividades)
+
+            # Compras relacionadas
+            st.write(f"**Produtos de e-sports que você comprou no último ano (ex: camisetas, ingressos, periféricos):**")
+            st.write(compras)
+
+            # Links de redes sociais
+            st.write(f"**Link do Twitter:** {x}")
+            st.write(f"**Link da Twitch:** {twitch}")
+
+            # Data do envio
+            st.write(f"**Data do Envio:** {date.today()}")
+
+            # Validação do documento
+            st.write(f"**Status do Documento:** O seu documento é válido!")
+
+            # Interação na web
+            st.write(f"**Interação nas redes sociais:** {interecao_web}")
+
         else:
             st.error("O seu documento não parece válido!\n"
-            "- Verifique se a imagem tem uma qualidade boa\n"
-            "- Verifique se preencheu o campo nome e CPF corretamente")
-
+                    "- Verifique se a imagem tem uma qualidade boa\n"
+                    "- Verifique se preencheu o campo nome e CPF corretamente")
