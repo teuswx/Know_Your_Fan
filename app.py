@@ -9,8 +9,8 @@ st.header("Know Your Fan")
 # Barra lateral com navegação
 with st.sidebar:
    tabs = on_hover_tabs(
-    tabName=['Formulário', 'Resultado'],
-    iconName=['assignment', 'Check'],
+    tabName=['Home', 'Formulário'],
+    iconName=['home', 'assignment'],
     styles={
         'navtab': {
             'background-color': 'transparent',
